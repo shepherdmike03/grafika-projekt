@@ -1,0 +1,6 @@
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.csproj.AssemblyReference.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.AssemblyInfoInputs.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.AssemblyInfo.cs
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\obj\Debug\net6.0\Projekt.sourcelink.json
