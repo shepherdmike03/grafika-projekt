@@ -1,0 +1,14 @@
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\bin\Debug\net9.0\Projekt.exe
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\bin\Debug\net9.0\Projekt.deps.json
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\bin\Debug\net9.0\Projekt.runtimeconfig.json
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\bin\Debug\net9.0\Projekt.dll
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\bin\Debug\net9.0\Projekt.pdb
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.AssemblyInfoInputs.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.AssemblyInfo.cs
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.dll
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\refint\Projekt.dll
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.pdb
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\Projekt.genruntimeconfig.cache
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\Projekt\Projekt\obj\Debug\net9.0\ref\Projekt.dll

@@ -1,0 +1,30 @@
+﻿MyLavaRunner
+├─ Resources/                  ← Kulso eroforrasok
+│  ├─ Models/
+│  │  ├─ player.obj
+│  │  ├─ obstacle1.obj
+│  │  └─ … 
+│  ├─ Textures/
+│  │  ├─ player_diffuse.png
+│  │  ├─ obstacle_diffuse.png
+│  │  ├─ lava_texture.jpg
+│  │  └─ skybox/               ← 6 darab skybox keppel (right, left, top…)
+│  └─ Shaders/
+│     ├─ shader.vert
+│     ├─ shader.frag
+│     ├─ skybox.vert
+│     └─ skybox.frag
+├─ src/
+│  ├─ Program.cs               ← Belepesi pont: letrehozza a GameWindow-t
+│  ├─ Game.cs                  ← Main loop (OnLoad, OnUpdateFrame, OnRenderFrame)
+│  ├─ ResourceManager.cs       ← Shader es modellek betoltese, cache
+│  ├─ Shader.cs                ← GLSL program osztaly (compile/link, uniform-kezeles)
+│  ├─ Camera.cs                ← Kamera logika (elso- es kulso nezet, nezetmatrix)
+│  ├─ Model.cs                 ← 3D modell osztaly (AssimpNet, VAO/VBO kezelessel)
+│  ├─ Skybox.cs                ← Skybox inicializalasa es kirajzolasa
+│  ├─ PlayerController.cs      ← Karakter mozgatasa, utkozes-vizsgalat
+│  ├─ ObstacleController.cs    ← Mozgo akadalyok (elore definialt palyamozgas)
+│  ├─ LavaFlow.cs              ← Lavafolyas parameterei (sebesseg, gyorsulas)
+│  ├─ UIManager.cs             ← Egyszeru GUI (eletek, kameravaltas info)
+│  └─ Utils.cs                 ← Segedfuggvenyek (pl. kolliziohoz AABB, vektor segedek)
+└─ MyLavaRunner.csproj         ← .NET projektfajl
