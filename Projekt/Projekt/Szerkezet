@@ -1,14 +1,14 @@
 ﻿MyLavaRunner
 ├─ Resources/                  ← Kulso eroforrasok
-│  ├─ Models/
+│  ├─ Models/                  
 │  │  ├─ player.obj
 │  │  ├─ obstacle1.obj
 │  │  └─ … 
-│  ├─ Textures/
+│  ├─ Textures/                 
 │  │  ├─ player_diffuse.png
 │  │  ├─ obstacle_diffuse.png
 │  │  ├─ lava_texture.jpg
-│  │  └─ skybox/               ← 6 darab skybox keppel (right, left, top…)
+│  │  └─ skybox/               !DONE!
 │  └─ Shaders/
 │     ├─ shader.vert
 │     ├─ shader.frag
