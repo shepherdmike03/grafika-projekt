@@ -12,7 +12,7 @@ namespace MyLavaRunner
             var nativeSettings = new NativeWindowSettings()
             {
                 Size       = new Vector2i(800, 600),
-                Title      = "Skybox Test",
+                Title      = "Lava Run",
                 APIVersion = new Version(3, 3),                 // force GL 3.3 core
                 Flags      = ContextFlags.ForwardCompatible,                // forward‐compatible context
             };

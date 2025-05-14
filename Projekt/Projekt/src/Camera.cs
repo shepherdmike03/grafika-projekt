@@ -1,83 +1,60 @@
-﻿using System;
+﻿// chase cam
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace MyLavaRunner
 {
-    
     public sealed class Camera
     {
         // state
-        private Vector3 _position;
-        private Vector3 _front = -Vector3.UnitZ;
-        private Vector3 _up    =  Vector3.UnitY;
-        private float   _yaw   = -90f;
-        private float   _pitch =   0f;
+        Vector3 _pos;
+        Vector3 _front = -Vector3.UnitZ;
+        Vector3 _up    =  Vector3.UnitY;
+        float   _yaw   = 0f;
+        float   _pitch = 15f;
+        Vector2 _prev;
+        bool    _init;
 
-        // tuning
-        public float MoveSpeed { get; set; } = 5f;
-        public float MouseSens { get; set; } = 0.20f;
+        // tune
+        public  float Sens   = 0.2f;
+        readonly float _eye  = 1.6f;
+        readonly float _boom = 6f;
+        readonly float _minP = -5f;
+        readonly float _maxP = 45f;
 
-        // ctor
-        public Camera(Vector3 startPos) => _position = startPos;
+        // in
+        public Vector3 Target { private get; set; }
 
-        public Matrix4 ViewMatrix => Matrix4.LookAt(_position, _position + _front, _up);
+        // out
+        public Matrix4 View  => Matrix4.LookAt(_pos, Target + new Vector3(0, _eye, 0), _up);
+        public Matrix4 Proj(float a) =>
+            Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45f), a, .1f, 200f);
 
-        public Matrix4 Projection(float aspect,
-                                  float fovDeg = 45f,
-                                  float zNear  = 0.1f,
-                                  float zFar   = 100f)
-            => Matrix4.CreatePerspectiveFieldOfView(
-                   MathHelper.DegreesToRadians(fovDeg), aspect, zNear, zFar);
-
-        // per frame update
-        public void Update(FrameEventArgs e,
-                           KeyboardState kb,
-                           MouseState mouse,
-                           bool windowFocused)
+        // tick
+        public void Update(FrameEventArgs e, MouseState m, bool focused)
         {
-            float dt = (float)e.Time;
+            if (!_init){ _prev=m.Position; _init=true; }
 
-            //  movement
-            if (windowFocused)
+            Vector2 d = m.Position - _prev; _prev = m.Position;
+            if (focused)
             {
-                if (kb.IsKeyDown(Keys.W)) _position += _front * MoveSpeed * dt;
-                if (kb.IsKeyDown(Keys.S)) _position -= _front * MoveSpeed * dt;
-
-                Vector3 right = Vector3.Normalize(Vector3.Cross(_front, _up));
-                if (kb.IsKeyDown(Keys.D)) _position += right * MoveSpeed * dt;
-                if (kb.IsKeyDown(Keys.A)) _position -= right * MoveSpeed * dt;
+                _yaw   += d.X * Sens;
+                _pitch  = MathHelper.Clamp(_pitch - d.Y * Sens, _minP, _maxP);
             }
 
-            // mouse‑look 
-            if (!_mouseInit)
-            {
-                _prevMousePos = mouse.Position;
-                _mouseInit = true;
-                return;                     // skip first frame to avoid jump
-            }
+            _front.X =  MathF.Cos(MathHelper.DegreesToRadians(_yaw)) *
+                        MathF.Cos(MathHelper.DegreesToRadians(_pitch));
+            _front.Y =  MathF.Sin(MathHelper.DegreesToRadians(_pitch));
+            _front.Z =  MathF.Sin(MathHelper.DegreesToRadians(_yaw)) *
+                        MathF.Cos(MathHelper.DegreesToRadians(_pitch));
+            _front.Normalize();
 
-            Vector2 delta = mouse.Position - _prevMousePos;
-            _prevMousePos = mouse.Position;
+            Vector3 focus = Target + new Vector3(0,_eye,0);
+            _pos = focus - _front * _boom;
 
-            if (!windowFocused) return;     // ignore while unfocused
-
-            _yaw   += delta.X * MouseSens;
-            _pitch -= delta.Y * MouseSens;
-            _pitch  = MathHelper.Clamp(_pitch, -89f, 89f);
-
-            Vector3 dir;
-            dir.X = MathF.Cos(MathHelper.DegreesToRadians(_yaw)) *
-                    MathF.Cos(MathHelper.DegreesToRadians(_pitch));
-            dir.Y = MathF.Sin(MathHelper.DegreesToRadians(_pitch));
-            dir.Z = MathF.Sin(MathHelper.DegreesToRadians(_yaw)) *
-                    MathF.Cos(MathHelper.DegreesToRadians(_pitch));
-
-            _front = Vector3.Normalize(dir);
+            // keep above ground
+            if (_pos.Y < 0.2f) _pos.Y = 0.2f;
         }
-
-        private bool   _mouseInit    = false;
-        private Vector2 _prevMousePos;
     }
 }

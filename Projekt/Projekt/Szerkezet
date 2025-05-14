@@ -25,6 +25,8 @@
 │  ├─ PlayerController.cs      ← Karakter mozgatasa, utkozes-vizsgalat
 │  ├─ ObstacleController.cs    ← Mozgo akadalyok (elore definialt palyamozgas)
 │  ├─ LavaFlow.cs              ← Lavafolyas parameterei (sebesseg, gyorsulas)
+|  ├─ Platform.cs              ← Platformok (mozgasi sebesseg, irany)
+│  ├─ Walls.cs                 ← Falak (mozgasi sebesseg, irany)
 │  ├─ UIManager.cs             ← Egyszeru GUI (eletek, kameravaltas info)
 │  └─ Utils.cs                 ← Segedfuggvenyek (pl. kolliziohoz AABB, vektor segedek)
 └─ MyLavaRunner.csproj         ← .NET projektfajl
