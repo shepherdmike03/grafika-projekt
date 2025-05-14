@@ -60,15 +60,23 @@ namespace MyLavaRunner
         public void Draw(Matrix4 m, Matrix4 v, Matrix4 p)
         {
             if (!_ok) return;
+
+            bool cullWasEnabled = GL.IsEnabled(EnableCap.CullFace);
+            if (cullWasEnabled) GL.Disable(EnableCap.CullFace);
+
             GL.UseProgram(_prog);
             GL.UniformMatrix4(GL.GetUniformLocation(_prog, "M"), false, ref m);
             GL.UniformMatrix4(GL.GetUniformLocation(_prog, "V"), false, ref v);
             GL.UniformMatrix4(GL.GetUniformLocation(_prog, "P"), false, ref p);
+
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, _tex);
+
             GL.BindVertexArray(_vao);
             GL.DrawArrays(PrimitiveType.Triangles, 0, 6);
             GL.BindVertexArray(0);
+
+            if (cullWasEnabled) GL.Enable(EnableCap.CullFace);
         }
 
         // helpers
