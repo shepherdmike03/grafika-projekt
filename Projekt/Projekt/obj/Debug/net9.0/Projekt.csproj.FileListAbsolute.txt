@@ -77,3 +77,4 @@ C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\pr
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\skybox\top.jpg
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\platform_diffuse.png
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Models\Player.obj
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\wall_texture.jpg
