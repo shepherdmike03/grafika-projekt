@@ -80,3 +80,7 @@ C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\pr
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\wall_texture.jpg
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Models\Rocket.obj
 C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\explosion.png
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Textures\lava_texture.jpg
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Models\Road Barrier 01a.obj
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Models\Road Barrier 01b.obj
+C:\Users\paszt\Desktop\Files\BACKUP FOLDER\Házik\2 ev\secondSemester\grafika\projekt\grafika-projekt\Projekt\Projekt\bin\Debug\net9.0\Resources\Models\road barrier 01c.obj

@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using System;
+using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
@@ -7,14 +8,14 @@ namespace MyLavaRunner
     internal sealed class PlayerController
     {
         public Vector3 Pos { get; private set; }
-        public Vector3 Velocity => _vel; // expose for exhaust
+        public Vector3 Velocity => _vel;
 
         const float Walk = 5;
         const float Jump = 8;
         const float Grav = -20;
         const float DeathY = -20;
         const float HalfW = 24;
-        const float MaxMS = 500f / 3.6f; // 138.888 m / s
+        const float MaxMS = 500f / 3.6f; // 138.888 m/s
 
         Vector3 _vel;
         float _sprintT;
@@ -23,7 +24,6 @@ namespace MyLavaRunner
 
         public float SpeedKmh => new Vector2(_vel.X, _vel.Z).Length * 3.6f;
 
-        
         public void Update(FrameEventArgs e, KeyboardState k)
         {
             if (_dead)
@@ -34,19 +34,14 @@ namespace MyLavaRunner
 
             float dt = (float)e.Time;
 
-            // double sprint smoothly
-            bool holdingShift = k.IsKeyDown(Keys.LeftShift) || k.IsKeyDown(Keys.RightShift);
-            _sprintT = holdingShift ? _sprintT + dt : 0;
+            // sprint
+            bool holdShift = k.IsKeyDown(Keys.LeftShift) || k.IsKeyDown(Keys.RightShift);
+            _sprintT = holdShift ? _sprintT + dt : 0;
 
             float mult = 1f;
-            if (holdingShift)
-            {
-                float exponent = 1f + _sprintT / 5f; // 1,2,3,…
-                mult = MathF.Pow(2f, exponent);
-            }
-            
+            if (holdShift) mult = MathF.Pow(2f, 1f + _sprintT / 5f);
 
-            // movement input
+            // move
             Vector3 dir = Vector3.Zero;
             if (k.IsKeyDown(Keys.W)) dir.Z -= 1;
             if (k.IsKeyDown(Keys.S)) dir.Z += 1;
@@ -57,16 +52,16 @@ namespace MyLavaRunner
             _vel.X = dir.X * Walk * mult;
             _vel.Z = dir.Z * Walk * mult;
 
-            // clamp horizontal velocity to 500 km/h
+            // clamp
             float h = new Vector2(_vel.X, _vel.Z).Length;
             if (h > MaxMS)
             {
-                float scale = MaxMS / h;
-                _vel.X *= scale;
-                _vel.Z *= scale;
+                float s = MaxMS / h;
+                _vel.X *= s;
+                _vel.Z *= s;
             }
 
-            // gravity & jumping
+            // gravity & jump
             Vector3 p = Pos;
             bool ground = p.Y <= 0.001f;
             if (ground)
@@ -79,7 +74,7 @@ namespace MyLavaRunner
             _vel.Y += Grav * dt;
             p += _vel * dt;
 
-            // side walls
+            // walls
             if (p.X < -HalfW)
             {
                 p.X = -HalfW;
@@ -101,7 +96,7 @@ namespace MyLavaRunner
             Pos = p;
         }
 
-        void Respawn()
+        public void Respawn() // ← now public!
         {
             Pos = Vector3.Zero;
             _vel = Vector3.Zero;

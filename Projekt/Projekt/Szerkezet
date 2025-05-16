@@ -27,6 +27,7 @@
 │  ├─ LavaFlow.cs              ← Lavafolyas parameterei (sebesseg, gyorsulas)
 |  ├─ Platform.cs              ← Platformok (mozgasi sebesseg, irany)
 │  ├─ Walls.cs                 ← Falak (mozgasi sebesseg, irany)
+|  ├─ ParticleExplosion.cs     ← Partikula effektus (robbanas, szikra)
 │  ├─ UIManager.cs             ← Egyszeru GUI (eletek, kameravaltas info)
 │  └─ Utils.cs                 ← Segedfuggvenyek (pl. kolliziohoz AABB, vektor segedek)
 └─ MyLavaRunner.csproj         ← .NET projektfajl

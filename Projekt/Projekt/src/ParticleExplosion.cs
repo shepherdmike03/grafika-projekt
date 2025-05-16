@@ -15,7 +15,7 @@ namespace MyLavaRunner
             public Vector3 Col;
         }
 
-        const int MAX = 2048; // room for trail + bursts
+        const int MAX = 2048;
         readonly List<P> _live = new();
         readonly Random _rng = new();
 
@@ -44,14 +44,13 @@ namespace MyLavaRunner
             const string vs =
                 "#version 330 core\nlayout(location=0)in vec3 p;layout(location=1)in vec3 clr;"
                 + "layout(location=2)in float a;out vec3 vCol;out float vA;"
-                + "uniform mat4 V,P;"
-                + "void main(){vCol=clr;vA=a;gl_Position=P*V*vec4(p,1);"
-                + "gl_PointSize = mix(20.0, 120.0, a);}";
+                + "uniform mat4 V,P;void main(){vCol=clr;vA=a;"
+                + "gl_Position=P*V*vec4(p,1);gl_PointSize=mix(20.0,120.0,a);}";
 
             const string fs =
                 "#version 330 core\nin vec3 vCol;in float vA;out vec4 C;"
                 + "void main(){vec2 d=gl_PointCoord-vec2(.5);"
-                + "float fade = 1.0-smoothstep(0.0,0.25,dot(d,d));"
+                + "float fade=1.0-smoothstep(0.0,0.25,dot(d,d));"
                 + "C=vec4(vCol, vA*fade);}";
 
             _prog = Compile(vs, fs);
@@ -59,8 +58,8 @@ namespace MyLavaRunner
             _ok = true;
         }
 
-  
-        public void Spawn(Vector3 origin, int num = 80)
+        // spawn
+        public void Spawn(Vector3 origin, int num = 80, Vector3? colourOverride = null)
         {
             num = Math.Clamp(num, 1, 100);
             for (int i = 0; i < num && _live.Count < MAX; ++i)
@@ -69,11 +68,12 @@ namespace MyLavaRunner
                 p.Pos = origin;
                 p.Vel = RandomDir() * (10 + (float)_rng.NextDouble() * 15);
                 p.Life = 1f;
-                p.Col = RandomColour();
+                p.Col = colourOverride ?? RandomColour();
                 _live.Add(p);
             }
         }
 
+        // updates
         public void Update(float dt)
         {
             for (int i = _live.Count - 1; i >= 0; --i)
@@ -87,6 +87,7 @@ namespace MyLavaRunner
             }
         }
 
+        // draw
         public void Draw(Matrix4 view, Matrix4 proj)
         {
             if (_live.Count == 0) return;
@@ -108,9 +109,10 @@ namespace MyLavaRunner
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vbo);
             unsafe
             {
-                fixed (float* dataPtr = buf)
+                fixed (float* ptr = buf)
                 {
-                    GL.BufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero, buf.Length * sizeof(float), (IntPtr)dataPtr);
+                    GL.BufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero,
+                        buf.Length * sizeof(float), (IntPtr)ptr);
                 }
             }
 
@@ -134,15 +136,7 @@ namespace MyLavaRunner
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
 
-        public void Dispose()
-        {
-            if (!_ok) return;
-            GL.DeleteBuffer(_vbo);
-            GL.DeleteVertexArray(_vao);
-            GL.DeleteProgram(_prog);
-        }
-
-        // helpers 
+        // helpers
         Vector3 RandomDir()
         {
             float z = (float)(_rng.NextDouble() * 2 - 1);
@@ -175,6 +169,15 @@ namespace MyLavaRunner
             GL.DeleteShader(vs);
             GL.DeleteShader(fs);
             return p;
+        }
+
+        public void Dispose()
+        {
+            if (!_ok) return;
+            GL.DeleteBuffer(_vbo);
+            GL.DeleteVertexArray(_vao);
+            GL.DeleteProgram(_prog);
+            _ok = false;
         }
     }
 }
