@@ -6,7 +6,6 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using Projekt;
 using ImgPF = System.Drawing.Imaging.PixelFormat;
 using GlPF = OpenTK.Graphics.OpenGL4.PixelFormat;
 

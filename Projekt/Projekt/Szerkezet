@@ -1,33 +1,20 @@
 ﻿MyLavaRunner
-├─ Resources/                  ← Kulso eroforrasok
+├─ Resources/                  ← Kulso eroforrasok (obj, png, jpg, stb.)
 │  ├─ Models/                  
-│  │  ├─ player.obj
-│  │  ├─ obstacle1.obj
-│  │  └─ … 
 │  ├─ Textures/                 
-│  │  ├─ player_diffuse.png
-│  │  ├─ obstacle_diffuse.png
-│  │  ├─ lava_texture.jpg
-│  │  └─ skybox/               !DONE!
-│  └─ Shaders/
-│     ├─ shader.vert
-│     ├─ shader.frag
-│     ├─ skybox.vert
-│     └─ skybox.frag
+│  │  └─ skybox/               
 ├─ src/
-│  ├─ Program.cs               ← Belepesi pont: letrehozza a GameWindow-t
+│  ├─ Camera.cs                ← Kamera logika 
 │  ├─ Game.cs                  ← Main loop (OnLoad, OnUpdateFrame, OnRenderFrame)
-│  ├─ ResourceManager.cs       ← Shader es modellek betoltese, cache
-│  ├─ Shader.cs                ← GLSL program osztaly (compile/link, uniform-kezeles)
-│  ├─ Camera.cs                ← Kamera logika (elso- es kulso nezet, nezetmatrix)
-│  ├─ Model.cs                 ← 3D modell osztaly (AssimpNet, VAO/VBO kezelessel)
-│  ├─ Skybox.cs                ← Skybox inicializalasa es kirajzolasa
-│  ├─ PlayerController.cs      ← Karakter mozgatasa, utkozes-vizsgalat
+│  ├─ LavaFlow.cs              ← Lavafolyas 
+│  ├─ Model.cs                 ← 3D modell osztaly
 │  ├─ ObstacleController.cs    ← Mozgo akadalyok (elore definialt palyamozgas)
-│  ├─ LavaFlow.cs              ← Lavafolyas parameterei (sebesseg, gyorsulas)
-|  ├─ Platform.cs              ← Platformok (mozgasi sebesseg, irany)
-│  ├─ Walls.cs                 ← Falak (mozgasi sebesseg, irany)
-|  ├─ ParticleExplosion.cs     ← Partikula effektus (robbanas, szikra)
-│  ├─ UIManager.cs             ← Egyszeru GUI (eletek, kameravaltas info)
-│  └─ Utils.cs                 ← Segedfuggvenyek (pl. kolliziohoz AABB, vektor segedek)
+|  ├─ ParticleExplosion.cs     ← Partikula effektus (robbanas)
+|  ├─ Platform.cs              ← Platform amin all a jatekos
+│  ├─ PlayerController.cs      ← Karakter mozgatasa
+│  ├─ Program.cs               ← Belepesi pont: letrehozza a GameWindow-t
+│  ├─ Skybox.cs                ← Skybox inicializalasa es kirajzolasa
+|  ├─ SodaController.cs        ← Szoda (gyujtheto)
+│  ├─ UIManager.cs             ← Egyszeru GUI (eletek,info)
+│  ├─ Walls.cs                 ← Falak 
 └─ MyLavaRunner.csproj         ← .NET projektfajl

@@ -10,7 +10,6 @@
 
     <ItemGroup>
       <Folder Include="Resources\Models\" />
-      <Folder Include="Resources\Shaders\" />
       <Folder Include="Resources\Textures\skybox\" />
     </ItemGroup>
 
